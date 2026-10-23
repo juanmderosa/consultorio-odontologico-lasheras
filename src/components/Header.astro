@@ -1,0 +1,37 @@
+---
+import Brand from './Brand.astro';
+---
+<header class="df-header">
+ <Brand />
+ 
+ <button class="df-menu" type="button" aria-label="Abrir menú" aria-controls="df-nav" aria-expanded="false"><span aria-hidden="true">☰</span></button>
+<nav class="df-nav" id="df-nav" aria-label="Navegación principal"><a href="#df-services">Especialidades</a><a href="#df-team">El equipo</a><a href="#df-clinic">Consultorio</a><a href="#df-contact">Contacto</a></nav>
+</header>
+<script>
+const button=document.querySelector<HTMLButtonElement>('.df-menu');
+const nav=document.querySelector<HTMLElement>('#df-nav');
+if(button&&nav){
+ const media=window.matchMedia('(max-width:720px)');let open=false;
+ const render=()=>{nav.hidden=media.matches&&!open;button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');};
+ const close=()=>{open=false;render();};
+ button.addEventListener('click',()=>{open=!open;render();});
+ nav.addEventListener('click',e=>{if((e.target as Element).closest('a')){const keyboard=(e as MouseEvent).detail===0;close();if(keyboard&&media.matches)button.focus();}});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&open){close();button.focus();}});
+ document.addEventListener('click',e=>{if(open&&!(e.target as Element).closest('.df-header'))close();});
+ media.addEventListener('change',()=>{close();});render();
+}
+</script>
+<style>
+:global(.df-header){ position:relative;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 40px; }
+:global(.df-nav){ display:flex;align-items:center;gap:22px;font-size:14px; }
+:global(.df-nav a){ display:inline-flex;align-items:center;min-height:44px; }
+:global(.df-menu){ display:none;min-width:44px;min-height:44px;border:1px solid #16295644;background:#fff;color:#162956;border-radius:6px; }
+@media(max-width:760px){:global(.df-header){ padding:20px 24px; }
+:global(.df-nav){ gap:14px; }
+}
+@media(max-width:720px){:global(.df-header){ padding:18px 20px; }
+:global(.df-menu){ display:block; }
+:global(.df-nav){ position:absolute;inset:100% 0 auto;z-index:5;background:#fff;box-shadow:0 8px 12px #16295618;padding:18px 24px;flex-direction:column;align-items:stretch; }
+}
+
+</style>

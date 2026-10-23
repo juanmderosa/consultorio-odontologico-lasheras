@@ -1,0 +1,21 @@
+---
+import Head from "../components/Head.astro";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <Head />
+  </head>
+  <body>
+    <a
+      class="skip-link"
+      href="#df-home"
+      >Saltar al contenido
+    </a>
+    <div class="site">
+      <slot />
+    </div>
+  </body>
+</html>

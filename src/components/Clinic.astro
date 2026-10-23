@@ -1,0 +1,86 @@
+---
+import { whatsapp } from '../data/business';
+import { Picture } from 'astro:assets';
+import reception from '../assets/recepcion.png';
+import childrenRoom from '../assets/consultorio.png';
+import treatmentRoom from '../assets/consultorio-atencion.png';
+
+const photos = [
+  { src: reception, caption: 'Recepción', alt: 'Recepción del consultorio con sillón blanco, pared turquesa y plantas' },
+  { src: childrenRoom, caption: 'Espacio para las infancias', alt: 'Consultorio con sillón odontológico y rincón infantil con mural de bosque' },
+  { src: treatmentRoom, caption: 'Consultorio', alt: 'Consultorio con sillón odontológico naranja, escritorio y luz natural' },
+];
+---
+
+<section id="df-clinic" class="df-section df-clinic" aria-labelledby="clinic-title">
+  <div class="clinic-heading">
+    <div>
+      <p class="df-kicker">Nuestro consultorio</p>
+      <h2 id="clinic-title">Un espacio para<br />cuidar tu sonrisa.</h2>
+    </div>
+    <div class="clinic-intro">
+      <p>Conocé nuestro consultorio y su espacio dedicado a las infancias.</p>
+      <p class="clinic-location">Gral. Las Heras / Marcos Paz</p>
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer">
+        Consultá por tu próximo turno <span aria-hidden="true">↗</span>
+        <span class="sr-only"> (abre WhatsApp en otra pestaña)</span>
+      </a>
+    </div>
+  </div>
+  <div class="clinic-gallery">
+    {photos.map(({ src, caption, alt }) => (
+      <figure>
+        <Picture
+          src={src}
+          formats={['avif', 'webp']}
+          fallbackFormat="jpg"
+          widths={[320, 480, 720]}
+          sizes="(max-width:720px) calc(100vw - 48px), (max-width:1200px) calc((100vw - 128px) / 3), 357px"
+          width={720}
+          height={720}
+          alt={alt}
+          loading="lazy"
+        />
+        <figcaption>{caption}</figcaption>
+      </figure>
+    ))}
+  </div>
+</section>
+
+<style>
+  .clinic-heading {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 32px;
+  }
+  .clinic-intro { max-width: 420px; justify-self: end; }
+  .clinic-intro p { color: #47576d; }
+  .clinic-location { margin-top: 18px; }
+  .clinic-intro a {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    min-height: 44px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+  .clinic-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  figure { margin: 0; min-width: 0; }
+  .clinic-gallery :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  figcaption { padding-top: 12px; color: #47576d; font-size: 14px; }
+  @media (max-width: 720px) {
+    .clinic-heading { grid-template-columns: 1fr; gap: 24px; margin-bottom: 28px; }
+    .clinic-intro { justify-self: start; max-width: none; }
+    .clinic-gallery { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>

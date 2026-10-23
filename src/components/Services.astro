@@ -1,0 +1,111 @@
+---
+
+---
+
+<section
+  id="df-services"
+  class="df-section">
+  <div class="df-section-head">
+    <div>
+      <p class="df-kicker">Nuestras especialidades</p><h2>
+        Cuidamos tu sonrisa<br />en cada etapa.
+      </h2>
+    </div><p>Conocé las áreas de atención de nuestro consultorio.</p>
+  </div><div class="df-services">
+    <article class="df-service">
+      <span class="df-service-label">Infancias</span><h3>Odontopediatría</h3><p>
+        Od. Natalia Borlando
+      </p>
+    </article>
+    <article class="df-service">
+      <span class="df-service-label">Desarrollo</span><h3>
+        Ortopedia maxilar
+      </h3><p>Od. Natalia Borlando</p>
+    </article>
+    <article class="df-service">
+      <span class="df-service-label">Cuidado integral</span><h3>
+        Odontología general
+      </h3><p>Od. José Manuel Ispizua</p>
+    </article>
+    <article class="df-service">
+      <span class="df-service-label">Rehabilitación</span><h3>Implantes</h3><p>
+        Od. José Manuel Ispizua
+      </p>
+    </article>
+    <article class="df-service">
+      <span class="df-service-label">Alineación dental</span><h3>
+        Ortodoncia
+      </h3><p>Od. José Manuel Ispizua</p>
+    </article>
+    <p class="df-services-note">
+      Consultanos por WhatsApp para conversar sobre tu consulta y coordinar un
+      turno.
+    </p>
+  </div>
+</section>
+<style>
+  :global(.df-section-head) {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 32px;
+    margin-bottom: 30px;
+  }
+  :global(.df-section-head p) {
+    max-width: 290px;
+    color: #47576d;
+  }
+  :global(.df-services) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 28px;
+  }
+  :global(.df-service) {
+    border-top: 1px solid #cbd8df;
+    padding: 24px 0 26px;
+  }
+  :global(.df-service .df-service-label) {
+    color: #17665e;
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: block;
+  }
+  :global(.df-service h3) {
+    margin-bottom: 12px;
+  }
+  :global(.df-service p) {
+    color: #47576d;
+    font-size: 16px;
+  }
+  :global(.df-services-note) {
+    grid-column: 1/-1;
+    border-top: 1px solid #cbd8df;
+    padding-top: 18px;
+    font-size: 14px;
+    color: #47576d;
+  }
+  @media (max-width: 760px) {
+    :global(.df-services) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    :global(.df-section-head) {
+      align-items: start;
+    }
+  }
+  @media (max-width: 720px) {
+    :global(.df-section-head) {
+      display: block;
+      margin-bottom: 26px;
+    }
+    :global(.df-section-head p) {
+      margin-top: 18px;
+      max-width: none;
+    }
+    :global(.df-services) {
+      grid-template-columns: 1fr;
+    }
+    :global(.df-service) {
+      padding-block: 23px;
+    }
+  }
+</style>

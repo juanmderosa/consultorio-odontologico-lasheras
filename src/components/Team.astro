@@ -1,0 +1,71 @@
+---
+
+---
+
+<section
+  id="df-team"
+  class="df-section df-team">
+  <div>
+    <p class="df-kicker">El equipo</p><h2>
+      Dos profesionales.<br />Un mismo compromiso.
+    </h2><p>
+      Somos Natalia Borlando y José Ispizua. Formamos un equipo, en el
+      consultorio y en la vida.
+    </p><p>
+      Desde hace 20 años ponemos el mismo compromiso y dedicación en cada
+      sonrisa que atendemos.
+    </p>
+  </div><div>
+    <article class="df-pro">
+      <p class="df-kicker">Atención de las infancias</p><h3>
+        Od. Natalia Borlando
+      </h3><p>Odontopediatría<br />Ortopedia maxilar</p>
+    </article><article class="df-pro">
+      <p class="df-kicker">Odontología integral</p><h3>
+        Od. José Manuel Ispizua
+      </h3><p>Odontología general<br />Implantes · Ortodoncia</p>
+    </article>
+  </div>
+</section>
+<style>
+  :global(.df-team) {
+    background: #f2f7f9;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 52px;
+  }
+  :global(.df-team h2) {
+    margin-bottom: 22px;
+  }
+  :global(.df-team p + p) {
+    margin-top: 16px;
+  }
+  :global(.df-pro) {
+    border-top: 1px solid #cbd8df;
+    padding: 24px 0;
+  }
+  :global(.df-pro:first-child) {
+    border-top: 0;
+    padding-top: 0;
+  }
+  :global(.df-pro .df-kicker) {
+    margin-bottom: 9px;
+  }
+  :global(.df-pro h3) {
+    margin-bottom: 10px;
+  }
+  :global(.df-pro p) {
+    color: #47576d;
+  }
+  @media (max-width: 760px) {
+    :global(.df-team) {
+      gap: 30px;
+    }
+  }
+  @media (max-width: 720px) {
+    :global(.df-team) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+</style>

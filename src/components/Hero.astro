@@ -1,0 +1,104 @@
+---
+import WhatsappLink from "./WhatsappLink.astro";
+import { Picture } from "astro:assets";
+import photo from "../assets/consultorio.png";
+---
+
+<div class="df-wrap">
+  <section
+    class="df-hero"
+    aria-label="Presentación">
+    <div class="df-hero-copy">
+      <p class="df-kicker">20 años de compromiso</p><h1>
+        Odontología integral,<br /><span>con la cercanía de siempre.</span>
+      </h1><p class="df-intro">
+        Natalia Borlando y José Manuel Ispizua.<br />Un equipo, en el
+        consultorio y en la vida.
+      </p><WhatsappLink>Hablemos de tu sonrisa</WhatsappLink><p class="df-note">
+        Turnos por WhatsApp · Abre otra pestaña
+      </p>
+    </div><Picture
+      src={photo}
+      formats={["avif", "webp"]}
+      fallbackFormat="jpg"
+      widths={[320, 480, 640, 900]}
+      sizes="(max-width:720px) calc(100vw - 32px), (max-width:1200px) 48vw, 550px"
+      width={900}
+      height={900}
+      alt="Consultorio odontológico con sillón y rincón infantil de temática de bosque"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </section>
+</div>
+<div class="df-strip">
+  <p><strong>Infancias</strong>Odontopediatría y ortopedia maxilar</p><p>
+    <strong>Atención integral</strong>Odontología general, implantes y
+    ortodoncia
+  </p><p><strong>Cerca tuyo</strong>Gral. Las Heras / Marcos Paz</p>
+</div>
+<style>
+  :global(.df-hero) {
+    display: grid;
+    grid-template-columns: 1.08fr 1fr;
+    background: #e3f3f2;
+  }
+  :global(.df-hero-copy) {
+    padding: 42px 32px;
+    align-self: center;
+  }
+  :global(.df-intro) {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 390px;
+    margin-bottom: 25px;
+  }
+  :global(.df-hero img) {
+    width: 100%;
+    height: 100%;
+    min-height: 440px;
+    object-fit: cover;
+    object-position: 43% 50%;
+    display: block;
+  }
+  :global(.df-strip) {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding-block: 24px;
+    border-bottom: 1px solid #dae2ea;
+    margin-inline: 40px;
+    font-size: 14px;
+  }
+  :global(.df-strip strong) {
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+  }
+  @media (max-width: 760px) {
+    :global(.df-hero-copy) {
+      padding: 32px 24px;
+    }
+    :global(.df-strip) {
+      margin-inline: 24px;
+    }
+  }
+  @media (max-width: 720px) {
+    :global(.df-hero) {
+      grid-template-columns: 1fr;
+    }
+    :global(.df-hero-copy) {
+      padding: 30px 24px;
+    }
+    :global(.df-hero img) {
+      min-height: 0;
+      height: 285px;
+      object-position: 43% 43%;
+    }
+    :global(.df-strip) {
+      flex-direction: column;
+      gap: 14px;
+      margin-inline: 24px;
+    }
+  }
+</style>

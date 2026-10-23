@@ -1,0 +1,67 @@
+---
+import { Picture } from "astro:assets";
+import logo from "../assets/logo.png";
+---
+
+<a
+  href="#df-home"
+  class="df-brand">
+  <Picture
+    src={logo}
+    formats={["webp"]}
+    fallbackFormat="png"
+    widths={[48, 96]}
+    sizes="46px"
+    width={46}
+    height={46}
+    class="df-logo"
+    alt=""
+  />
+  <span><strong>ODONTOLOGÍA INTEGRAL</strong><small>LAS HERAS</small></span>
+</a>
+<style>
+  .df-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+  .df-brand :global(.df-logo) {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  strong {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+  small {
+    display: block;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+  }
+  @media (max-width: 760px) {
+    strong {
+      font-size: 14px;
+      letter-spacing: 0.3px;
+    }
+  }
+  @media (max-width: 720px) {
+    .df-brand {
+      gap: 9px;
+    }
+    .df-brand :global(.df-logo) {
+      width: 38px;
+      height: 38px;
+    }
+    strong {
+      font-size: 14px;
+      letter-spacing: 0;
+      max-width: 190px;
+    }
+  }
+</style>

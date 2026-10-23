@@ -1,0 +1,63 @@
+---
+import Brand from "./Brand.astro";
+---
+
+<footer class="df-footer">
+  <div class="df-footer-top">
+    <Brand /><p>Od. Natalia Borlando<br />Od. José Manuel Ispizua</p>
+  </div><div class="df-footer-bottom">
+    <span>© Odontología Integral Las Heras</span><span
+      >Desarrollado por: <a
+        href="https://juanmderosa-developer.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="juanmderosadeveloper, abre otra pestaña"
+        >juanmderosadeveloper</a
+      ></span>
+  </div>
+</footer>
+<style>
+  :global(.df-footer) {
+    padding: 0 40px 24px;
+  }
+  :global(.df-footer-top) {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: center;
+    padding-bottom: 25px;
+  }
+  :global(.df-footer-top p) {
+    font-size: 14px;
+    text-align: right;
+  }
+  :global(.df-footer-bottom) {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid #dae2ea;
+    padding-top: 20px;
+    font-size: 14px;
+    color: #47576d;
+  }
+  :global(.df-footer-bottom a) {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  @media (max-width: 760px) {
+    :global(.df-footer) {
+      padding-inline: 24px;
+    }
+  }
+  @media (max-width: 720px) {
+    :global(.df-footer-top),
+    :global(.df-footer-bottom) {
+      flex-direction: column;
+      align-items: start;
+      gap: 18px;
+    }
+    :global(.df-footer-top p) {
+      text-align: left;
+    }
+  }
+</style>

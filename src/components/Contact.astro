@@ -1,0 +1,76 @@
+---
+import WhatsappLink from "./WhatsappLink.astro";
+---
+
+<section
+  id="df-contact"
+  class="df-contact">
+  <div>
+    <p class="df-kicker">Estamos para acompañarte</p><h2>
+      Tu próxima visita<br />empieza con un mensaje.
+    </h2><p>
+      Escribinos para consultar y coordinar un turno con nuestro equipo.
+    </p>
+  </div><div class="df-contact-action">
+    <WhatsappLink>Solicitar turno por WhatsApp</WhatsappLink><a
+      class="df-contact-number"
+      href="tel:+541123785988"
+      >+54 11 2378-5988</a
+    ><p class="df-note">
+      WhatsApp se abre en otra pestaña.<br />El turno se coordina por
+      conversación.
+    </p>
+  </div>
+</section>
+<style>
+  :global(.df-contact) {
+    margin: 0 40px 64px;
+    padding: 42px;
+    background: #162956;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  :global(.df-contact .df-kicker) {
+    color: #b5e6df;
+  }
+  :global(.df-contact h2) {
+    margin-bottom: 18px;
+  }
+  :global(.df-contact p) {
+    max-width: 390px;
+  }
+  :global(.df-contact-action) {
+    justify-self: end;
+  }
+  :global(.df-contact .df-button) {
+    background: #e3f3f2;
+    color: #162956;
+  }
+  :global(.df-contact .df-button:hover) {
+    background: #fff;
+  }
+  :global(.df-contact-number) {
+    display: block;
+    margin: 16px 0 4px;
+  }
+  @media (max-width: 760px) {
+    :global(.df-contact) {
+      margin: 0 24px 48px;
+      padding: 30px;
+    }
+  }
+  @media (max-width: 720px) {
+    :global(.df-contact) {
+      margin: 0 16px 44px;
+      padding: 30px 24px;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+    :global(.df-contact-action) {
+      justify-self: start;
+    }
+  }
+</style>

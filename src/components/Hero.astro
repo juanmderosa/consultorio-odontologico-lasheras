@@ -1,104 +1,46 @@
 ---
-import WhatsappLink from "./WhatsappLink.astro";
-import { Picture } from "astro:assets";
-import photo from "../assets/consultorio.png";
+import { Picture } from 'astro:assets';
+import photo from '../assets/consultorio-atencion.png';
+import WhatsappLink from './WhatsappLink.astro';
 ---
-
-<div class="df-wrap">
-  <section
-    class="df-hero"
-    aria-label="Presentación">
-    <div class="df-hero-copy">
-      <p class="df-kicker">20 años de compromiso</p><h1>
-        Odontología integral,<br /><span>con la cercanía de siempre.</span>
-      </h1><p class="df-intro">
-        Natalia Borlando y José Manuel Ispizua.<br />Un equipo, en el
-        consultorio y en la vida.
-      </p><WhatsappLink>Hablemos de tu sonrisa</WhatsappLink><p class="df-note">
-        Turnos por WhatsApp · Abre otra pestaña
-      </p>
-    </div><Picture
-      src={photo}
-      formats={["avif", "webp"]}
-      fallbackFormat="jpg"
-      widths={[320, 480, 640, 900]}
-      sizes="(max-width:720px) calc(100vw - 32px), (max-width:1200px) 48vw, 550px"
-      width={900}
-      height={900}
-      alt="Consultorio odontológico con sillón y rincón infantil de temática de bosque"
-      loading="eager"
-      fetchpriority="high"
-    />
-  </section>
-</div>
-<div class="df-strip">
-  <p><strong>Infancias</strong>Odontopediatría y ortopedia maxilar</p><p>
-    <strong>Atención integral</strong>Odontología general, implantes y
-    ortodoncia
-  </p><p><strong>Cerca tuyo</strong>Gral. Las Heras / Marcos Paz</p>
-</div>
+<section class="hero container" aria-label="Presentación">
+ <div class="hero-grid"><div>
+  <p class="hero-badge"><span aria-hidden="true">●</span> 20 años de compromiso</p>
+  <h1>Odontología integral,<br />con la <span class="highlight">cercanía de siempre.</span></h1>
+  <p class="authors">Natalia Borlando y José Manuel Ispizua.</p>
+  <p class="intro">Un equipo dedicado al cuidado de la salud bucal, en el consultorio y en la vida. Una atención cercana en cada etapa.</p>
+  <div class="hero-actions"><WhatsappLink>Hablemos de tu sonrisa</WhatsappLink><p>Turnos por WhatsApp<br />Coordinación por conversación</p></div>
+  <div class="hero-facts"><div><strong>20</strong><span>Años de compromiso</span></div><div><strong>2</strong><span>Profesionales</span></div><div><strong>En equipo</strong><span>En cada sonrisa</span></div></div>
+ </div><div class="hero-frame">
+  <Picture src={photo} formats={['avif','webp']} fallbackFormat="jpg" widths={[480,720,1000]} sizes="(max-width:1023px) calc(100vw - 48px), 550px" width={1000} height={1000} loading="eager" fetchpriority="high" alt="Consultorio con sillón odontológico naranja, escritorio y luz natural" />
+  <div class="photo-note"><span class="note-symbol" aria-hidden="true">☼</span><div><strong>Un espacio para toda la familia</strong><p>Con un sector dedicado a las infancias.</p></div></div>
+ </div></div>
+ <div class="summary-grid"><article><p class="eyebrow">Infancias</p><h3>Odontopediatría &amp; Ortopedia</h3><p>Od. Natalia Borlando</p></article><article><p class="eyebrow">Atención integral</p><h3>Implantes &amp; Ortodoncia</h3><p>Od. José Manuel Ispizua</p></article><article><p class="eyebrow">Cerca tuyo</p><h3>Las Heras &amp; Marcos Paz</h3><p>Consultanos para coordinar tu próximo turno.</p></article></div>
+</section>
 <style>
-  :global(.df-hero) {
-    display: grid;
-    grid-template-columns: 1.08fr 1fr;
-    background: #e3f3f2;
-  }
-  :global(.df-hero-copy) {
-    padding: 42px 32px;
-    align-self: center;
-  }
-  :global(.df-intro) {
-    font-size: 16px;
-    line-height: 1.7;
-    max-width: 390px;
-    margin-bottom: 25px;
-  }
-  :global(.df-hero img) {
-    width: 100%;
-    height: 100%;
-    min-height: 440px;
-    object-fit: cover;
-    object-position: 43% 50%;
-    display: block;
-  }
-  :global(.df-strip) {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    padding-block: 24px;
-    border-bottom: 1px solid #dae2ea;
-    margin-inline: 40px;
-    font-size: 14px;
-  }
-  :global(.df-strip strong) {
-    font-size: 16px;
-    font-weight: 500;
-    display: block;
-  }
-  @media (max-width: 760px) {
-    :global(.df-hero-copy) {
-      padding: 32px 24px;
-    }
-    :global(.df-strip) {
-      margin-inline: 24px;
-    }
-  }
-  @media (max-width: 720px) {
-    :global(.df-hero) {
-      grid-template-columns: 1fr;
-    }
-    :global(.df-hero-copy) {
-      padding: 30px 24px;
-    }
-    :global(.df-hero img) {
-      min-height: 0;
-      height: 285px;
-      object-position: 43% 43%;
-    }
-    :global(.df-strip) {
-      flex-direction: column;
-      gap: 14px;
-      margin-inline: 24px;
-    }
-  }
+.hero{padding-top:48px;padding-bottom:88px;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:54px;}
+.hero-badge{display:inline-flex;gap:9px;align-items:center;font-size:14px;background:#ebe8e1;padding:6px 12px;border-radius:999px;margin-bottom:24px;}
+.hero-badge span{color:var(--gold);font-size:10px;}
+h1{margin-bottom:24px;}
+.authors{font-family:var(--serif);font-size:23px;color:var(--navy);margin-bottom:10px;}
+.intro{font-size:18px;max-width:460px;}
+.hero-actions{display:flex;gap:18px;align-items:center;margin-top:28px;}
+.hero-actions p{font-size:14px;line-height:1.4;}
+.hero-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:42px;}
+.hero-facts strong{display:block;font:400 29px/1.3 var(--serif);color:var(--navy);}
+.hero-facts span{font-size:14px;}
+.hero-frame{position:relative;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:8px 10px 0 #ebe8e1;}
+.hero-frame :global(img){display:block;width:100%;height:500px;object-fit:cover;border-radius:8px;}
+.photo-note{position:absolute;bottom:30px;left:28px;right:28px;display:flex;gap:12px;align-items:center;background:var(--canvas);padding:16px;border-radius:10px;}
+.photo-note strong{font:400 22px/1.2 var(--serif);color:var(--navy);}
+.photo-note p{font-size:14px;margin-top:4px;}
+.note-symbol{background:var(--yellow);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--gold);flex-shrink:0;font-size:25px;}
+.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:54px;}
+.summary-grid article{padding:24px;border-radius:12px;background:var(--linen);}
+.summary-grid .eyebrow{margin-bottom:10px;}
+.summary-grid h3{font-size:25px;margin-bottom:10px;}
+.summary-grid article>p:last-child{font-size:14px;}
+@media(max-width:1023px){.hero-grid{grid-template-columns:1fr;gap:38px;}.hero-frame{max-width:650px;width:100%;}.summary-grid{gap:16px;}.hero-actions{flex-wrap:wrap;}}
+@media(max-width:767px){.hero{padding-top:28px;padding-bottom:56px;}.hero-frame :global(img){height:380px;}.summary-grid{grid-template-columns:1fr;margin-top:40px;}.photo-note{left:23px;right:23px;bottom:23px;padding:12px;}.photo-note strong{font-size:20px;}.note-symbol{display:none;}.hero-facts strong{font-size:25px;}.authors{font-size:21px;}.hero-actions{align-items:start;}.hero-facts{gap:10px;margin-top:32px;}}
 </style>

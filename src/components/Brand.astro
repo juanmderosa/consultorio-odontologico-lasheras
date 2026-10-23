@@ -1,67 +1,15 @@
 ---
-import { Picture } from "astro:assets";
-import logo from "../assets/logo.png";
+import { Picture } from 'astro:assets';
+import logo from '../assets/logo.png';
 ---
-
-<a
-  href="#df-home"
-  class="df-brand">
-  <Picture
-    src={logo}
-    formats={["webp"]}
-    fallbackFormat="png"
-    widths={[48, 96]}
-    sizes="46px"
-    width={46}
-    height={46}
-    class="df-logo"
-    alt=""
-  />
-  <span><strong>ODONTOLOGÍA INTEGRAL</strong><small>LAS HERAS</small></span>
+<a href="#df-home" class="brand">
+  <Picture src={logo} formats={['webp']} fallbackFormat="png" widths={[48,96]} sizes="44px" width={44} height={44} alt="" />
+  <span><strong>Odontología Integral</strong><small>Las Heras · Consultorios</small></span>
 </a>
 <style>
-  .df-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 0;
-  }
-  .df-brand :global(.df-logo) {
-    width: 46px;
-    height: 46px;
-    object-fit: contain;
-    flex-shrink: 0;
-  }
-  strong {
-    display: block;
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 1px;
-    line-height: 1.4;
-  }
-  small {
-    display: block;
-    font-size: 14px;
-    letter-spacing: 1.5px;
-  }
-  @media (max-width: 760px) {
-    strong {
-      font-size: 14px;
-      letter-spacing: 0.3px;
-    }
-  }
-  @media (max-width: 720px) {
-    .df-brand {
-      gap: 9px;
-    }
-    .df-brand :global(.df-logo) {
-      width: 38px;
-      height: 38px;
-    }
-    strong {
-      font-size: 14px;
-      letter-spacing: 0;
-      max-width: 190px;
-    }
-  }
+.brand{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;color:var(--navy);}
+.brand :global(img){width:44px;height:44px;object-fit:contain;}
+strong{display:block;font:400 23px/1.1 var(--serif);letter-spacing:-.02em;}
+small{display:block;font-size:14px;letter-spacing:.07em;margin-top:4px;}
+@media(max-width:480px){strong{font-size:19px;}small{font-size:14px;letter-spacing:0;}.brand{gap:8px;}.brand :global(img){width:36px;height:36px;}}
 </style>

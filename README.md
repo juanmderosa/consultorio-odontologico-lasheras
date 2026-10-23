@@ -1,6 +1,6 @@
 # Odontología Integral Las Heras
 
-Sitio estático de Natalia Borlando y José Manuel Ispizua. Composición aprobada «Luminosa y contemporánea», implementada con Astro, Tailwind mediante Vite y TypeScript. Proyecto independiente del estudio jurídico; no está publicado.
+Sitio estático de Natalia Borlando y José Manuel Ispizua. Rediseño editorial cálido basado en la referencia Stitch aportada, implementada con Astro, Tailwind mediante Vite y TypeScript. Proyecto independiente del estudio jurídico; no está publicado.
 
 ## Ejecutar
 
@@ -20,7 +20,7 @@ TypeScript 6.0.3 es la última estable admitida por `@astrojs/check` 0.9.12. Typ
 
 ## Contenido y contacto
 
-Logo original recortado al símbolo, sin redibujarlo, y fotografías originales en `src/assets/`, optimizados con `Picture`. Fuentes de sistema, sin descargas externas. La redacción adapta el material aportado, con frases breves de presentación para revisión comercial; no hay reseñas, matrículas, dirección exacta ni horarios inventados.
+Logo original recortado al símbolo, sin redibujarlo, y fotografías originales en `src/assets/`, optimizados con `Picture`. Newsreader y Outfit alojadas localmente mediante Fontsource (licencia SIL OFL 1.1), con font-display: swap. La redacción adapta el material aportado, con frases breves de presentación para revisión comercial; no hay reseñas, matrículas, dirección exacta ni horarios inventados. Se conservaron las fotos reales, el logo y el teléfono confirmados; no se usan retratos generados ni promesas clínicas de la referencia. El consejo de higiene adapta la publicación original aportada.
 
 Los botones abren WhatsApp al +54 11 2378-5988 en otra pestaña. Preparan una consulta que el visitante revisa y envía; el turno se coordina por conversación. El teléfono permite llamada directa. No hay backend, almacenamiento de consultas ni reservas automáticas.
 

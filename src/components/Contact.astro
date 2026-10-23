@@ -1,76 +1,17 @@
 ---
-import WhatsappLink from "./WhatsappLink.astro";
+import WhatsappLink from './WhatsappLink.astro';
+import { business } from '../data/business';
 ---
-
-<section
-  id="df-contact"
-  class="df-contact">
-  <div>
-    <p class="df-kicker">Estamos para acompañarte</p><h2>
-      Tu próxima visita<br />empieza con un mensaje.
-    </h2><p>
-      Escribinos para consultar y coordinar un turno con nuestro equipo.
-    </p>
-  </div><div class="df-contact-action">
-    <WhatsappLink>Solicitar turno por WhatsApp</WhatsappLink><a
-      class="df-contact-number"
-      href="tel:+541123785988"
-      >+54 11 2378-5988</a
-    ><p class="df-note">
-      WhatsApp se abre en otra pestaña.<br />El turno se coordina por
-      conversación.
-    </p>
-  </div>
-</section>
+<section id="df-contact" class="section contact container"><div class="contact-panel"><div><span class="eyebrow">Estamos para acompañarte</span><h2>Tu próxima visita<br />empieza con un mensaje.</h2><p>Escribinos para consultar y coordinar un turno para vos o tu familia con nuestro equipo.</p></div><div class="contact-action"><WhatsappLink variant="light">Solicitar turno por WhatsApp</WhatsappLink><a class="phone" href={`tel:+${business.phone}`}>{business.phoneLabel}</a><p>WhatsApp se abre en otra pestaña.<br />El turno se coordina por conversación.</p></div></div></section>
 <style>
-  :global(.df-contact) {
-    margin: 0 40px 64px;
-    padding: 42px;
-    background: #162956;
-    color: #fff;
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 32px;
-    align-items: center;
-  }
-  :global(.df-contact .df-kicker) {
-    color: #b5e6df;
-  }
-  :global(.df-contact h2) {
-    margin-bottom: 18px;
-  }
-  :global(.df-contact p) {
-    max-width: 390px;
-  }
-  :global(.df-contact-action) {
-    justify-self: end;
-  }
-  :global(.df-contact .df-button) {
-    background: #e3f3f2;
-    color: #162956;
-  }
-  :global(.df-contact .df-button:hover) {
-    background: #fff;
-  }
-  :global(.df-contact-number) {
-    display: block;
-    margin: 16px 0 4px;
-  }
-  @media (max-width: 760px) {
-    :global(.df-contact) {
-      margin: 0 24px 48px;
-      padding: 30px;
-    }
-  }
-  @media (max-width: 720px) {
-    :global(.df-contact) {
-      margin: 0 16px 44px;
-      padding: 30px 24px;
-      grid-template-columns: 1fr;
-      gap: 25px;
-    }
-    :global(.df-contact-action) {
-      justify-self: start;
-    }
-  }
+.contact-panel{background:var(--navy);color:#f4f0e9;padding:52px;border-radius:12px;display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center;box-shadow:0 12px 30px #1b2b4a12;}
+.contact-panel .eyebrow{color:var(--yellow);}
+h2{color:#fff;font-size:clamp(36px,4vw,52px);margin-bottom:22px;}
+.contact-panel>div>p{max-width:480px;}
+.contact-action{text-align:right;}
+.phone{display:block;font-size:23px;font-family:var(--serif);color:var(--yellow);padding-top:14px;min-height:44px;}
+.contact-action p{font-size:14px;margin-top:8px;}
+.contact-action :global(.df-button){font:400 21px/1.3 var(--serif);padding:15px 26px;}
+@media(max-width:1023px){.contact-panel{grid-template-columns:1fr;padding:40px;}.contact-action{text-align:left;}}
+@media(max-width:767px){.contact-panel{padding:30px 24px;gap:28px;}.contact-action :global(.df-button){font-size:19px;}}
 </style>

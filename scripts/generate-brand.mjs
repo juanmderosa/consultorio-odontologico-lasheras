@@ -10,7 +10,7 @@ await sharp("src/assets/logo.png")
   .png()
   .toFile("public/apple-touch-icon.png");
 const text = Buffer.from(
-  `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="630" fill="#e3f3f2"/><g fill="#162956" font-family="Arial,sans-serif"><text x="70" y="330" font-size="54">Odontología Integral Las Heras</text><text x="70" y="400" font-size="30">Od. Natalia Borlando · Od. José Manuel Ispizua</text><text x="70" y="465" font-size="28">Con la cercanía de siempre.</text><text x="70" y="535" font-size="24">Gral. Las Heras / Marcos Paz</text></g></svg>`,
+  `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="630" fill="#fdf9f2"/><g fill="#1b2b4a" font-family="Arial,sans-serif"><text x="70" y="330" font-size="54">Odontología Integral Las Heras</text><text x="70" y="400" font-size="30">Od. Natalia Borlando · Od. José Manuel Ispizua</text><text x="70" y="465" font-size="28">Con la cercanía de siempre.</text><text x="70" y="535" font-size="24">Gral. Las Heras / Marcos Paz</text></g></svg>`,
 );
 const logo = await sharp("src/assets/logo.png")
   .resize(160, 160)

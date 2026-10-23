@@ -42,3 +42,18 @@ if (!html.includes('rel="canonical"')) {
 console.log(
   "HTML, metadatos, imágenes, enlaces y estado de indexación: correctos.",
 );
+
+const clinic = html.match(
+  /<section[^>]*id="df-clinic"[\s\S]*?<\/section>/,
+)?.[0];
+assert.ok(clinic);
+assert.equal(
+  (clinic.match(/<img\b/g) || []).length,
+  3,
+  "Galería de tres fotografías",
+);
+assert.ok(
+  !/lh3.googleusercontent.com|cdn.tailwindcss.com|fonts.googleapis.com/.test(
+    html,
+  ),
+);

@@ -1,13 +1,6 @@
 ---
-import { whatsapp } from "../data/business";
+import { whatsapp } from '../data/business';
+interface Props { variant?: 'light' | 'yellow'; }
+const { variant } = Astro.props;
 ---
-
-<a
-  class="df-button"
-  href={whatsapp}
-  target="_blank"
-  rel="noopener noreferrer">
-  <slot />
-  <span aria-hidden="true">↗</span>
-  <span class="sr-only"> (abre WhatsApp en otra pestaña)</span>
-</a>
+<a class:list={['df-button', { 'button-light': variant === 'light', 'button-yellow': variant === 'yellow' }]} href={whatsapp} target="_blank" rel="noopener noreferrer"><slot /><span aria-hidden="true">↗</span><span class="sr-only"> (abre WhatsApp en otra pestaña)</span></a>

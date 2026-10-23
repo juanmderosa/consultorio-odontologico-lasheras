@@ -1,63 +1,17 @@
 ---
-import Brand from "./Brand.astro";
+import Brand from './Brand.astro';
+import { business, whatsapp } from '../data/business';
 ---
-
-<footer class="df-footer">
-  <div class="df-footer-top">
-    <Brand /><p>Od. Natalia Borlando<br />Od. José Manuel Ispizua</p>
-  </div><div class="df-footer-bottom">
-    <span>© Odontología Integral Las Heras</span><span
-      >Desarrollado por: <a
-        href="https://juanmderosa-developer.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="juanmderosadeveloper, abre otra pestaña"
-        >juanmderosadeveloper</a
-      ></span>
-  </div>
-</footer>
+<footer class="footer"><div class="container"><div class="footer-grid"><div><Brand /><p class="footer-quote">Cuidamos tu sonrisa en cada etapa de la vida.</p><p>20 años de compromiso y dedicación en cada sonrisa que atendemos.</p></div><div><span class="eyebrow">Cuerpo profesional</span><div class="footer-person"><h3>Od. Natalia Borlando</h3><p>Odontopediatría · Ortopedia maxilar</p></div><div class="footer-person"><h3>Od. José Manuel Ispizua</h3><p>Odontología general · Implantes · Ortodoncia</p></div></div><div><span class="eyebrow">Atención y consultas</span><p>Gral. Las Heras / Marcos Paz</p><a class="text-link" href={whatsapp} target="_blank" rel="noopener noreferrer">{business.phoneLabel}<span class="sr-only"> (abre WhatsApp en otra pestaña)</span></a><p>Escribinos para coordinar tu turno.</p></div></div><div class="footer-bottom"><p>© {new Date().getFullYear()} Odontología Integral Las Heras</p><p>Desarrollado por: <a href="https://juanmderosa-developer.com" target="_blank" rel="noopener noreferrer">juanmderosadeveloper<span class="sr-only"> (abre otra pestaña)</span></a></p></div></div></footer>
 <style>
-  :global(.df-footer) {
-    padding: 0 40px 24px;
-  }
-  :global(.df-footer-top) {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    align-items: center;
-    padding-bottom: 25px;
-  }
-  :global(.df-footer-top p) {
-    font-size: 14px;
-    text-align: right;
-  }
-  :global(.df-footer-bottom) {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    border-top: 1px solid #dae2ea;
-    padding-top: 20px;
-    font-size: 14px;
-    color: #47576d;
-  }
-  :global(.df-footer-bottom a) {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  @media (max-width: 760px) {
-    :global(.df-footer) {
-      padding-inline: 24px;
-    }
-  }
-  @media (max-width: 720px) {
-    :global(.df-footer-top),
-    :global(.df-footer-bottom) {
-      flex-direction: column;
-      align-items: start;
-      gap: 18px;
-    }
-    :global(.df-footer-top p) {
-      text-align: left;
-    }
-  }
+.footer{background:var(--linen);padding-top:54px;padding-bottom:28px;}
+.footer-grid{display:grid;grid-template-columns:1.25fr 1fr .8fr;gap:40px;}
+.footer-grid p{font-size:14px;}
+.footer-grid .footer-quote{font:italic 28px/1.3 var(--serif);color:var(--navy);margin:24px 0 16px;max-width:320px;}
+.footer-person{background:#f1ede6;padding:16px;border-radius:10px;margin-bottom:14px;}
+.footer-person h3{font-size:23px;margin-bottom:8px;}
+.footer-bottom{display:flex;justify-content:space-between;gap:24px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;}
+.footer-bottom a{text-decoration:underline;text-underline-offset:4px;}
+@media(max-width:1023px){.footer-grid{grid-template-columns:1fr 1fr;}.footer-grid>div:first-child{grid-column:1/-1;}}
+@media(max-width:767px){.footer-grid{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;gap:16px;}}
 </style>

@@ -1,71 +1,27 @@
 ---
-
+const team=[
+ {name:'Od. Natalia Borlando',initials:'NB',label:'Infancias & Ortopedia',areas:['Odontopediatría','Ortopedia maxilar'],description:'Atención de la salud bucal de las infancias, con el compromiso y la dedicación que compartimos como equipo.'},
+ {name:'Od. José Manuel Ispizua',initials:'JI',label:'Odontología integral',areas:['Odontología general','Implantes','Ortodoncia'],description:'Atención en odontología general, implantes y ortodoncia, con la cercanía de siempre.'},
+];
 ---
-
-<section
-  id="df-team"
-  class="df-section df-team">
-  <div>
-    <p class="df-kicker">El equipo</p><h2>
-      Dos profesionales.<br />Un mismo compromiso.
-    </h2><p>
-      Somos Natalia Borlando y José Ispizua. Formamos un equipo, en el
-      consultorio y en la vida.
-    </p><p>
-      Desde hace 20 años ponemos el mismo compromiso y dedicación en cada
-      sonrisa que atendemos.
-    </p>
-  </div><div>
-    <article class="df-pro">
-      <p class="df-kicker">Atención de las infancias</p><h3>
-        Od. Natalia Borlando
-      </h3><p>Odontopediatría<br />Ortopedia maxilar</p>
-    </article><article class="df-pro">
-      <p class="df-kicker">Odontología integral</p><h3>
-        Od. José Manuel Ispizua
-      </h3><p>Odontología general<br />Implantes · Ortodoncia</p>
-    </article>
-  </div>
-</section>
+<section id="df-team" class="section"><div class="container">
+ <div class="team-intro"><div><span class="eyebrow">El equipo</span><h2>Dos profesionales.<br />Un mismo compromiso.</h2></div><p>Somos Natalia Borlando y José Manuel Ispizua. Formamos un equipo, en el consultorio y en la vida. Desde hace 20 años ponemos el mismo compromiso y dedicación en cada sonrisa que atendemos.</p></div>
+ <div class="team-grid">{team.map((person,index)=><article class:list={['profile',{navy:index===1}]}><div class="profile-top"><span class="initials" aria-hidden="true">{person.initials}</span><span class="profile-tag">{person.label}</span></div><h3>{person.name}</h3><p class="profile-specialty">{person.areas.join(' · ')}</p><p class="profile-description">{person.description}</p><ul>{person.areas.map(area=><li><span aria-hidden="true">✓</span>{area}</li>)}</ul><p class="profile-note">Consultas y turnos por WhatsApp</p></article>)}</div>
+</div></section>
 <style>
-  :global(.df-team) {
-    background: #f2f7f9;
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 52px;
-  }
-  :global(.df-team h2) {
-    margin-bottom: 22px;
-  }
-  :global(.df-team p + p) {
-    margin-top: 16px;
-  }
-  :global(.df-pro) {
-    border-top: 1px solid #cbd8df;
-    padding: 24px 0;
-  }
-  :global(.df-pro:first-child) {
-    border-top: 0;
-    padding-top: 0;
-  }
-  :global(.df-pro .df-kicker) {
-    margin-bottom: 9px;
-  }
-  :global(.df-pro h3) {
-    margin-bottom: 10px;
-  }
-  :global(.df-pro p) {
-    color: #47576d;
-  }
-  @media (max-width: 760px) {
-    :global(.df-team) {
-      gap: 30px;
-    }
-  }
-  @media (max-width: 720px) {
-    :global(.df-team) {
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-  }
+.team-intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center;margin-bottom:48px;}
+.team-intro>p{font-size:18px;}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.profile{background:#fff;padding:32px;border:1px solid var(--line);border-left:5px solid var(--yellow);border-radius:12px;}
+.profile.navy{border-left-color:var(--navy);}
+.profile-top{display:flex;justify-content:space-between;align-items:start;gap:18px;margin-bottom:26px;}
+.initials{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--linen);color:var(--navy);font:26px var(--serif);flex-shrink:0;}
+.profile-tag{background:#ebe8e1;border-radius:999px;font-size:14px;padding:5px 10px;}
+.profile-specialty{font-size:14px;color:var(--gold);margin-top:9px;}
+.profile-description{margin-top:22px;}
+ul{list-style:none;padding:0;margin:28px 0;}
+li{display:flex;align-items:center;gap:10px;margin-top:8px;}
+li span{color:var(--gold);}
+.profile-note{font-size:14px;text-transform:uppercase;letter-spacing:.06em;}
+@media(max-width:767px){.team-intro,.team-grid{grid-template-columns:1fr;gap:28px;}.team-intro{margin-bottom:32px;}.profile{padding:24px;}.profile-top{flex-wrap:wrap;}}
 </style>

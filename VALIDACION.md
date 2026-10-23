@@ -1,27 +1,29 @@
-# Verificación — 23 de octubre de 2026
+# Verificación del rediseño editorial — 23 de octubre de 2026
 
-## Automatizada
+## Implementación
 
-- Node activo 24.22.1; pnpm 10.18.3.
-- Dependencias contrastadas con npm: Astro 7.4.2, Tailwind 4.3.3, Vite 8.3.5, TypeScript 6.0.3 admitido por @astrojs/check 0.9.12, Vitest 5.0.5. Sin overrides ni peers forzados.
-- Instalación con pnpm install --frozen-lockfile correcta y árbol de dependencias revisado.
+Diseño basado en code.html, DESIGN.md y screen.png aportados. Se mantienen el logo original, las tres fotos reales, los servicios confirmados, los nombres y el teléfono +54 11 2378-5988. La galería muestra las tres imágenes sin carrusel. La ilustración de higiene se recortó de la publicación original aportada.
+
+Newsreader y Outfit locales mediante Fontsource 5.3.0, font-display: swap; licencias SIL OFL 1.1 en public/licenses. No se usan scripts CDN, icon fonts remotas, retratos generados ni las fotos ficticias de la referencia.
+
+## Comprobaciones automáticas
+
+- Node activo 24.22.1 y pnpm 10.18.3.
 - pnpm check: 0 errores, 0 advertencias, 0 hints.
-- pnpm test: 10 pruebas aprobadas (codificación de WhatsApp, teléfono y dominio).
-- pnpm build: salida estática e imágenes AVIF/WebP/JPEG con respaldo; logo WebP/PNG.
-- pnpm verify:build: un h1, título y descripción únicos, anclas válidas, imágenes con dimensiones y alternativas, recursos existentes, enlaces externos seguros, schema Dentist e imagen social 1200 × 630.
-- axe-core 4.14.0 en navegador local con etiquetas WCAG A/AA, incluidas 2.1 y 2.2: sin infracciones detectadas a 320, 390 y 1280 px. En móvil devuelve revisiones incompletas de contraste y coincidencia de etiquetas; a 1280 px no hubo revisiones incompletas. No equivale a certificación.
-- Sin desbordes horizontales en el documento a 320, 390 y 1280 px. El servidor de QA con iframes es externo al sitio y no se incluye en dist.
+- pnpm test: 10 pruebas aprobadas de WhatsApp y dominio.
+- pnpm build y pnpm verify:build correctos; HTML, metadatos, imágenes, tres fotos en galería y enlaces revisados.
+- axe-core 4.14.0 en navegador a 320, 390 y 1280 px: sin infracciones detectadas. Revisiones incompletas de contraste en los tres tamaños y de coincidencia de etiquetas en móvil; requieren juicio manual.
+- Sin desbordes horizontales en el documento a 320, 390 y 1280 px. Imágenes de carga inmediata completas y fuentes cargadas en los tres tamaños.
+- Contrastes medidos de los pares de texto y fondos: #1b2b4a/#fdf9f2: 13.42:1; #44474e/#f7f3ec: 8.41:1; #6d5d23/#fdf9f2: 6.18:1; #ffffff/#1b2b4a: 14.08:1; #1b2b4a/#f7e299: 10.93:1; #687687/#ffffff: 4.64:1.
 
-## Manual
+## Revisión manual
 
-- Inspección visual de portada en móvil y escritorio, fotografía de recepción y navegación por anclas.
-- Menú móvil: apertura, Tab hacia Especialidades, Escape, cierre y devolución del foco al botón comprobados.
-- WhatsApp: destino y texto revisados en HTML y pruebas, sin enviar mensajes ni confirmar turnos.
-- Contrastes de pares principales medidos: blanco/azul 14,14:1; azul/menta 12,36:1; turquesa/menta 5,93:1. Texto secundario con color oscuro, sin texto sobre fotos.
-- El umbral móvil se amplió a 720 px para evitar columnas estrechas en paneles de vista previa.
+Portada, especialidades y galería revisadas visualmente. Menú móvil probado con apertura, Tab a Especialidades y Escape con devolución del foco. Cabecera fija con fondo opaco; anclas con espacio para no tapar títulos. La galería se apila en móvil.
 
-## Pendiente y límites
+No se envían mensajes de prueba ni se confirman turnos: WhatsApp prepara un mensaje que el visitante revisa y envía.
 
-- No se realizó sesión con lector de pantalla ni prueba completa de zoom del navegador o dispositivos físicos.
-- Dominio sin confirmar: salida final noindex/nofollow, robots bloqueado y sin canonical ni sitemap. La habilitación mediante dominio está cubierta por pruebas de normalización; no se hizo publicación ni validación de redes sociales públicas.
-- Redacción breve de presentación adaptada al material aportado y pendiente de revisión comercial. Sin dirección exacta, horarios, matrículas, reseñas o precios inventados.
+## Límites y contenido
+
+No se realizó sesión con lector de pantalla, prueba exhaustiva de zoom ni dispositivos físicos. No se afirma certificación WCAG. La redacción de presentación y descripciones breves se adapta a los datos aportados y queda para revisión comercial. Se omiten horarios, certificaciones, cifras publicitarias y promesas clínicas no confirmadas del diseño de referencia.
+
+El sitio sigue sin dominio confirmado y sin publicar: noindex/nofollow y robots bloqueado. PUBLIC_SITE_URL habilita canonical, metadatos sociales y sitemap al configurar el dominio HTTPS definitivo y recompilar.
